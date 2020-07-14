@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- BABEL LIBRARY-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Stateless Functional Components</title>
+</head>
+<body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT-->
+    <div id="app">React has not rendered yet</div>
+
+    <!-- Your custom script here: JAVASCRIPT-->
+    <script type="text/babel">
+
+    let Colorspectrum = () => [<h1>Red, Orange, Yellow, Green, Blue, Indigo, Violet</h1>]
+    let reactWhere = document.getElementById("app")
+
+    // !-- RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE!) 
+        // ReactDOM.render(
+        //     <Colorspectrum/>, reactWhere
+        // );
+
+    // CHALLENGE
+    // CREATE A COMPONENT FOR ALL THE COLORS OF THE SPECTRUM AND RENDER THEM TO THE DOM WITHIN ONE PARENT DIV
+    // ONE RETURN STATEMENT
+
+    let Red = () => <h1>RED</h1>
+
+    let Oj = () => <h1>ORANGE</h1>
+
+    let Yella = () => <h1>YELLOW</h1>
+
+    let Green = () => <h1>GREEN</h1>
+
+    let Blue = () => <h1>BLUE</h1>
+
+    let Indigo = () => <h1>INDIGO</h1>
+
+    let Violet = () => <h1>VIOLET</h1>
+
+        ReactDOM.render(
+            <div>
+                <Red/>
+                <Oj/>
+                <Green/>
+                <Blue/>
+                <Indigo/>
+                <Violet/>
+            </div>,               
+            reactWhere
+        );
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

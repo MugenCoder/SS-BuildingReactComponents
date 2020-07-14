@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- BABEL LIBRARY-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Class Components</title>
+</head>
+<body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT-->
+    <div id="app">React has not rendered yet</div>
+
+    <!-- Your custom script here: JAVASCRIPT-->
+    <script type="text/babel">
+
+// let reactWhere = () => document.getElementById("app")
+
+// PRACTICE
+// CREATE OUR FIRST CLASS COMPONENT
+class Shapes extends React.Component {
+    render () {
+        return(
+            <h1>Circle, Square, Rectangle</h1>
+        )
+    }
+}
+
+let reactWhere = () => document.getElementById("app")
+
+        // ReactDOM.render(
+        //     // react what
+        //     <Shapes/>,
+        //     // react where
+        //     // reactWhere
+        //     document.getElementById("app")
+        // )
+
+// CHALLENGE
+// CREATE CLASS COMPONENTS FOR A CIRCLE SQUARE AND RECTANGLE
+// RENDER TO THE DOM WITHIN A PARENT DIV TAG
+
+class Circle extends React.Component{
+    render () {
+        return(
+            <h1>Circle</h1>
+        ) 
+    }
+}
+
+class Square extends React.Component{
+    render () {
+        return (
+            <h1>Square</h1>
+        )
+    }        
+}
+
+class Rectangle extends React.Component{
+    render () {
+        return (
+            <h1>Rectangle</h1>
+        )
+    }
+}
+
+    ReactDOM.render(
+        // react what
+        <div>
+            <Circle/>
+            <Square/>
+            <Rectangle/>
+        </div>,
+        // react where
+        document.getElementById("app")
+    )
+
+    </script>
+</body>

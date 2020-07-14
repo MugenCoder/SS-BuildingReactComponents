@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- BABEL LIBRARY-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+
+    <title>Styling Within Components</title>
+</head>
+<body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT-->
+    <div id="app">React has not rendered yet</div>
+
+    <!-- Your custom script here: JAVASCRIPT-->
+    <script type="text/babel">
+
+// 2 RULES IF STYLING WITHIN A COMPONENT
+// #1 CREATE A JS OBJ; THE PROPS & VALUES WILL BE OUR CSS PROPERTIES & STYLES
+// #2 ASSIGN OBJ TO THE STYLE ATTRIBUTE TO THE JSX ELEMS WE WANT TO STYLE
+    // let Red = () => {
+    //     let redStyle = {
+    //         height: 50,
+    //         width: 150,
+    //         backgroundColor: "red"
+    //     }
+    // } <h1 className="red">RED</h1>
+
+    const Red = function() {
+        let redStyle = {
+            height: 50,
+            width: 150,
+            backgroundColor: "red"
+        }
+        return(
+            // WRAP EXPRESSIONS IN {} TO BE EVALUATED
+            <h1 style={redStyle}>Red</h1>
+        )
+    }
+
+    const Oj = function() {
+        let ojStyle = {
+            height: 50,
+            width: 150,
+            backgroundColor: "orange"
+        }
+        return(
+            <h1 style={ojStyle}>ORANGE</h1>
+        )
+    } 
+        
+    const Yella = function() {
+        let yellaStyle = {
+            height: 50,
+            width: 150,
+            backgroundColor: "yellow"
+        }
+        return(
+            <h1 style={yellaStyle}>YELLOW</h1>
+        )
+    } 
+
+    const Green = function() {
+        let greenStyle = {
+            height: 50,
+            width: 150,
+            backgroundColor: "green"
+        }
+        return(
+            <h1 style={greenStyle}>GREEN</h1>
+        )
+    } 
+
+    const Blue = function() {
+        let blueStyle = {
+            height: 50,
+            width:150,
+            backgroundColor: "blue"
+        }
+        return(
+            <h1 style={blueStyle}>BLUE</h1>
+        )
+    } 
+
+    const Indigo = function() {
+        let indigoStyle = {
+            height: 50,
+            width: 150,
+            backgroundColor: "indigo"
+        }
+        return(
+            <h1 style={indigoStyle}>INDIGO</h1>
+        )
+    } 
+
+    const Violet = function() {
+        let violetStyle = {
+            height: 50,
+            width: 150,
+            backgroundColor: "violet"
+        }
+        return(
+            <h1 style={violetStyle}>VIOLET</h1>
+        )
+    } 
+
+    let reactWhere = document.getElementById("app")
+
+        ReactDOM.render(
+            <div>
+                <Red/>
+                <Oj/>
+                <Yella/>
+                <Green/>
+                <Blue/>
+                <Indigo/>
+                <Violet/>
+            </div>,               
+            reactWhere
+        );
+
+
+
+
+    </script>
+</body>
