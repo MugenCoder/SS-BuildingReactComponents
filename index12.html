@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- BABEL LIBRARY-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <!-- FONT AWESOME LIBRARY -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/14102e9075.js" crossorigin="anonymous"></script>
+
+    <title>Props Pt2</title>
+</head>
+<body>
+
+    <div id="app">Tamp Impala does not live here</div>
+
+    <script type="text/babel">
+
+    const Tame = () => {
+        return(
+            <h1>Tame Impala is a Wave</h1>
+        )
+    }
+
+    class TameGreeting extends React.Component {
+        render() {
+            let tameStyle = {
+                height: 230,
+                width: 200, 
+                backgroundColor: this.props.color
+            }
+            return(
+                <h1 style={tameStyle}>{this.props.name}, the More I Know the Better I Know that I Know Nothing</h1>
+            );
+        }
+    }
+    
+
+    // REACT RENDER
+    ReactDOM.render(
+    // REACT WHAT
+    <div>
+        <TameGreeting name="Galactus" color="aqua"/>,
+    <TameGreeting name="Santos" color="gold"/>,
+    <TameGreeting name="Mugen" color="red"/>
+    </div>,
+    
+    // REACT WHERE
+    document.getElementById("app")
+    )
+    
+    
+    </script>
+</body>
