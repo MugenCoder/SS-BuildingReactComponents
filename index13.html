@@ -15,47 +15,45 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
     <script src="https://kit.fontawesome.com/14102e9075.js" crossorigin="anonymous"></script>
 
-    <title>Props Pt2</title>
+    <title>Props Pt3</title>
 </head>
 <body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT-->
+    <div id="app">React has not rendered yet</div>
 
-    <div id="app">Tamp Impala does not live here</div>
-
+    <!-- Your custom script here: JAVASCRIPT-->
     <script type="text/babel">
 
-    const Tame = () => {
-        return(
-            <h1>Tame Impala is a Wave</h1>
-        )
-    }
-
-    class TameGreeting extends React.Component {
+    class ColorSpectrum extends React.Component{
         render() {
-            let tameStyle = {
-                height: 230,
-                width: 200, 
+            let spectrumStyle = {
+                height: 40,
+                width: 110,
                 backgroundColor: this.props.color
             }
             return(
-                <h1 style={tameStyle}>{this.props.name}, the More I Know the Better I Know that I Know Nothing</h1>
-            );
-        }
+                <h1 style={spectrumStyle}>{this.props.name}</h1>
+            )
+        }      
     }
-    
+
 
     // REACT RENDER
     ReactDOM.render(
-    // REACT WHAT
-    <div>
-        <TameGreeting name="Galactus" color="aqua"/>,
-    <TameGreeting name="Santos" color="gold"/>,
-    <TameGreeting name="Mugen" color="tomato"/>
-    </div>,
-    
-    // REACT WHERE
-    document.getElementById("app")
+        // REACT WHERE
+        <div>
+            <ColorSpectrum name="Red" color="red"/>
+            <ColorSpectrum name="Orange" color="orange"/>
+            <ColorSpectrum name="Yellow" color="yellow"/>
+            <ColorSpectrum name="Green" color="green"/>
+            <ColorSpectrum name="Blue" color="blue"/>
+            <ColorSpectrum name="Indigo" color="indigo"/>
+            <ColorSpectrum name="Violet" color="violet"/>    
+        </div>,
+        // REACT WHERE
+        document.getElementById("app")
     )
-    
-    
+
+
     </script>
 </body>
