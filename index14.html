@@ -29,9 +29,9 @@
         render() {
             return(
                 <div>
-                    <p>Hi, {}</p>
-                    <p>My age is: {}</p>
-                    <img src={''} />
+                    <p>Hi, {this.props.name}</p>
+                    <p>My age is: {this.props.age}</p>
+                    <img src={this.props.img} />
                 </div>
             );
         }
@@ -40,7 +40,10 @@
     // REACT DOM
     ReactDOM.render(
         // REACT WHAT
-        <PropExample/>,
+        <PropExample 
+            name="Jorja" 
+            age="23" 
+            img="assets\profilepic.jpg" />,
         // REACT WHERE
         document.getElementById('app')
     );
