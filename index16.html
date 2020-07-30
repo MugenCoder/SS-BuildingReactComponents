@@ -33,6 +33,8 @@
     // FRIENDLY COMPLEX COMPONENT
     let Friendly = () => {
         let friendlyStyle = {
+            display: 'inline-block',
+            margin: 20,
             height: 300,
             width: 200, 
             padding: 0,
@@ -53,7 +55,7 @@
     // AVATAR COMPONENT
     let Avatar = () => {
         let avatarStyle = {
-            marginLeft: 20,
+            marginLeft: 27,
             marginTop: 20,
             width: 150,
             height: 150,
@@ -78,11 +80,11 @@
 
     // GetConnected COMPLEX COMPONENT
     let GetConnected = () => {
-        let connectedStyle = {
-
+        let getConnectedStyle = {
+            marginLeft: 15
         }
         return(
-            <div>
+            <div style={getConnectedStyle}>
                 <Like/>
                 <Share/>
                 <Add/>
@@ -90,26 +92,36 @@
         )
     }
 
+    const iconStyle = {
+        margin: 20
+    }
+
         // LIKE COMPONENT
         let Like = () => {
             return(
-                <i className="fas fa-thumbs-up" aria-hidden="true">LIKE</i>
+                <i className="fas fa-thumbs-up" aria-hidden="true" style={iconStyle}></i>
             );
         }
 
         // SHARE COMPONENT
         let Share = () => {
             return(
-                <i className="fas fa-share">SHARE</i>
+                <i className="fas fa-share" style={iconStyle}></i>
             );
         }
 
         // ADD COMPONENT 
         let Add = () => {
             return(
-                <i className="fas fa-user-plus">ADD</i>
+                <i className="fas fa-user-plus" style={iconStyle}></i>
             );
         }
+
+        // CHALLENGE
+        // MASS PRODUCE INDIVIDUAL FRIENDLY CARDS USING PROPS
+        // USE PROPS TO PASS THE NAME OF THE PERSON FORM REACTDOM.RENDER() METHOD TO COMPONENT TO CHILD USERNAME COMPONENT
+
+        
 
 
     ReactDOM.render(
