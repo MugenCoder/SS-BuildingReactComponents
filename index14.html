@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- BABEL LIBRARY-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <!-- FONT AWESOME LIBRARY -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/14102e9075.js" crossorigin="anonymous"></script>
+
+    <title>Dynamic Rendering</title>
+</head>
+<body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT-->
+    <div id="app">React has not rendered yet</div>
+
+    <!-- Your custom script here: JAVASCRIPT-->
+    <script type="text/babel">
+
+    // RENDER YOUR NAME, AGE & SOCIAL MEDIA PROFILE PIC TO THE DOM
+    class PropExample extends React.Component {
+        render() {
+            return(
+                <div>
+                    <p>Hi, {}</p>
+                    <p>My age is: {}</p>
+                    <img src={''} />
+                </div>
+            );
+        }
+    }
+
+    // REACT DOM
+    ReactDOM.render(
+        // REACT WHAT
+        <PropExample/>,
+        // REACT WHERE
+        document.getElementById('app')
+    );
+
+    </script>
+</body>
