@@ -31,7 +31,7 @@
     // #2 ASSIGN OBJ TO THE STYLE ATTRIBUTE TO THE JSX ELEMS WE WANT TO EVALUATE [STYLE]
 
     // FRIENDLY COMPLEX COMPONENT
-    let Friendly = () => {
+    let Friendly = (props) => {
         let friendlyStyle = {
             display: 'inline-block',
             margin: 20,
@@ -44,8 +44,8 @@
         }
         return(
             <div style={friendlyStyle}>
-                <Avatar/>
-                <UserName/>
+                <Avatar img={props.img}/>
+                <UserName name={props.name}/>
                 <GetConnected/>
             </div>
         );
@@ -53,7 +53,7 @@
 
     // Use Stateless Functional Components when you do not need additional features of Class Components 
     // AVATAR COMPONENT
-    let Avatar = () => {
+    let Avatar = (props) => {
         let avatarStyle = {
             marginLeft: 27,
             marginTop: 20,
@@ -62,19 +62,19 @@
             borderRadius: "50%" 
         }
         return(
-            <img src="\assets\profilepic.jpg" alt="profile pic" style={avatarStyle}/>
+            <img src={props.img} alt="profile pic" style={avatarStyle}/>
         )
     }
 
     // UserName COMPONENT
-    let UserName = () => {
+    let UserName = (props) => {
         let nameStyle = {
             fontSize: 24,
             fontFamily: "Arial, Helvetica, sans-serif",
-            margin: 20
+            marginLeft: 60
         }
         return(
-            <h1 style={nameStyle}>Profile Name</h1>
+            <h1 style={nameStyle}>{props.name}</h1>
         )
     }
 
@@ -85,14 +85,14 @@
         }
         return(
             <div style={getConnectedStyle}>
-                <Like/>
+                <Like />
                 <Share/>
                 <Add/>
             </div>
         )
     }
 
-    const iconStyle = {
+    let iconStyle = {
         margin: 20
     }
 
@@ -119,14 +119,48 @@
 
         // CHALLENGE
         // MASS PRODUCE INDIVIDUAL FRIENDLY CARDS USING PROPS
-        // USE PROPS TO PASS THE NAME OF THE PERSON FORM REACTDOM.RENDER() METHOD TO COMPONENT TO CHILD USERNAME COMPONENT
+        // USE PROPS TO PASS THE NAME OF THE PERSON FROM REACTDOM.RENDER() METHOD TO COMPONENT TO CHILD USERNAME COMPONENT
 
+        
         
 
 
     ReactDOM.render(
-        <Friendly/>,
-        document.getElementById("app")
+        <div>
+            <Friendly
+            name="Chuck"
+            img="\assets\profilepic.jpg"
+            /> 
+            <Friendly
+            name="Bakugo"
+            img="\assets\bakugo.png"
+            /> 
+            <Friendly
+            name="Deku"
+            img="\assets\deku.png"
+            /> 
+            <Friendly
+            name="Iida"
+            img="\assets\iida.png"
+            /> 
+            <Friendly
+            name="Ochaco"
+            img="\assets\ochaco.png"
+            /> 
+            <Friendly
+            name="Shinsou"
+            img="\assets\shinsou.jpg"
+            /> 
+            <Friendly
+            name="Shoto"
+            img="\assets\shoto.png"
+            /> 
+            <Friendly
+            name="Tsuyu"
+            img="\assets\tsuyu.webp"
+            /> 
+        </div>,
+    document.getElementById("app")
     )
 
 
