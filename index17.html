@@ -30,7 +30,7 @@
         let siblings = props.siblings;
         // use map method on siblings arr to create new arr full of JSX code
         let siblingsListItem = siblings.map((person) => {
-            return <div>{person.name}</div>
+            return <div key={person.id}>{person.name}</div>
         })
         return(
             <div>{siblingsListItem}</div>
