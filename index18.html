@@ -38,10 +38,10 @@
     // }
 
     // ALTERNATE FamilyListItem component
-    let FamilyList(props) {
+    let FamilyList = (props) => {
         return(
-            <div>{props.siblings.map((person) }
-            return <div key={person.id}>{person.name}</div>
+            <div>{props.siblings.map((person) => {
+                return <div key={person.id}>{person.name}</div>
             })}</div>
         );
     }
