@@ -25,26 +25,26 @@
     <script type="text/babel">
 
     // Create FamilyList component
-    // let FamilyList = (props) => { 
-    //     // assign props.siblings to siblings var as a wrapper to create clean code 
-    //     let siblings = props.siblings;
-    //     // use map method on siblings arr to create new arr full of JSX code
-    //     let siblingsListItem = siblings.map((person) => {
-    //         return <div key={person.id}>{person.name}</div>
-    //     })
-    //     return(
-    //         <div>{siblingsListItem}</div>
-    //     )
-    // }
-
-    // ALTERNATE FamilyListItem component
-    let FamilyList = (props) => {
+    let FamilyList = (props) => { 
+        // assign props.siblings to siblings var as a wrapper to create clean code 
+        let siblings = props.siblings;
+        // use map method on siblings arr to create new arr full of JSX code
+        let siblingsListItem = siblings.map((person) => {
+            return <div key={person.id}>{person.name}</div>
+        })
         return(
-            <div>{props.siblings.map((person) => {
-                return <div key={person.id}>{person.name}</div>
-            })}</div>
-        );
+            <div>{siblingsListItem}</div>
+        )
     }
+
+    // ALTERNATE REFACTOR FamilyListItem component
+    // let FamilyList = (props) => {
+    //     return(
+    //         <div>{props.siblings.map((person) => {
+    //             return <div key={person.id}>{person.name}</div>
+    //         })}</div>
+    //     );
+    // }
 
     // WHEN YOU RENDER A LIST OF ITEMS, REACT ALWAYS STORES SOME INFO ABOUT EACH ITEM IN THE LIST. IF YOU RENDER A COMPONENT THAT HAS STATE, THAT STATE NEEDS TO BE STORED AND REGARDLESS OF HOW YO IMPLEMENT YOUR COMPONENTS, REACT STORES A REFERENCE TO THE BACKING NATIVE VIEWS. WHEN YOU UPDATE THAT LIST, REACT NEEDS TO DETERMINE WHAT HAS CHANGED. YOU COULD'VE ADDED, REMOVED, REARRANGED OR UPDATED ITEMS IN THE LIST. "KEY" IS A SPECIAL PROPERTY THAT'S RESERVED BY REACT. WHEN AN ELEMENT IS CREATED, REACT PULLS OFF THE KEY PROPERTY AND STORES THE KEY DIRECTLY ON THE RETURNED ELEMENT. EVEN THOUGH IT MAY LOOK LIKE IT IS PARY OF PROPS, IT CANNOT BE REFERENCED WITH "THIS.PROPS.KEY"
     // REACT USES THE KEY AUTOMATICALLY TO WHILE DECIDING WHICH CHILDREN TO UPDATE 
