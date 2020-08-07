@@ -15,7 +15,7 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
     <script src="https://kit.fontawesome.com/14102e9075.js" crossorigin="anonymous"></script>
 
-    <title>Iterating Thru Lists Refactor</title>
+    <title>Filter & Map on Array</title>
 </head>
 <body>
 
@@ -24,27 +24,34 @@
 
     <script type="text/babel">
 
-    // // Create FamilyList component
+    // // Create TrainList component
+    // let TrainList = (props) => { 
+    // // //     // assign props.siblings to siblings var as a wrapper to create clean code 
+    //     let oneTrainer = props.oneTrain;
+    // //         //USE FILTER METHOD TO ONLY SHOW WHO HAS BARS
+    //     let oneTrainFilter = oneTrain.filter((person) => {
+    //         return person.bars;
+    // //         //USE MAP METHOD ON ONETRAIN ARR TO CRETAE NEW ARR OF JSX 
+    //     }).map((person) => {
+    //         return <div key={person.id}>{person.name}</div>
+    //     })
+    //     return(
+    //         <div>{oneTrainFilter}</div>
+    //     )
+    // }
+        
+
+    // ALTERNATE REFACTOR FamilyListItem component
     let TrainList = (props) => { 
-    //     // assign props.siblings to siblings var as a wrapper to create clean code 
-        let oneTrain = props.oneTrain;
-    //     // use map method on siblings arr to create new arr full of JSX code
-        let oneTrainListItem = oneTrain.map((person) => {
-            return <div key={person.id}>{person.name}</div>
-        })
-        return(
-            <div>{oneTrainListItem}</div>
+        return (
+            <div>{props.oneTrain.filter((person) =>{
+                return person.bars;
+            }).map((person) => {
+                return <div key={person.id}>{person.name}</div>
+            })}</div>
         )
     }
 
-    // ALTERNATE REFACTOR FamilyListItem component
-    // let FamilyList = (props) => {
-    //     return(
-    //         <div>{props.siblings.map((person) => {
-    //             return <div key={person.id}>{person.name}</div>
-    //         })}</div>
-    //     );
-    // }
 
     // WHEN YOU RENDER A LIST OF ITEMS, REACT ALWAYS STORES SOME INFO ABOUT EACH ITEM IN THE LIST. IF YOU RENDER A COMPONENT THAT HAS STATE, THAT STATE NEEDS TO BE STORED AND REGARDLESS OF HOW YO IMPLEMENT YOUR COMPONENTS, REACT STORES A REFERENCE TO THE BACKING NATIVE VIEWS. WHEN YOU UPDATE THAT LIST, REACT NEEDS TO DETERMINE WHAT HAS CHANGED. YOU COULD'VE ADDED, REMOVED, REARRANGED OR UPDATED ITEMS IN THE LIST. "KEY" IS A SPECIAL PROPERTY THAT'S RESERVED BY REACT. WHEN AN ELEMENT IS CREATED, REACT PULLS OFF THE KEY PROPERTY AND STORES THE KEY DIRECTLY ON THE RETURNED ELEMENT. EVEN THOUGH IT MAY LOOK LIKE IT IS PARY OF PROPS, IT CANNOT BE REFERENCED WITH "THIS.PROPS.KEY"
     // REACT USES THE KEY AUTOMATICALLY TO WHILE DECIDING WHICH CHILDREN TO UPDATE 
@@ -55,7 +62,7 @@
 
     // ARRAY OF OBJS - 3 PROPS (ID, NAME & BARS), 3 VALUES (NUMBER, STRING, BOOLEAN)
     const oneTrain = [
-        {id: 1, name: 'Joey BadA$$', bars: true}, {id: 2, name: 'A$AP Rocky', bars: true}, {id: 3, name: 'Action Bronson', bars: true}, {id: 4, name: 'Yellawolf', bars: false},  {id: 5, name: 'KDot', bars: true},  {id: 6, name: 'Danny Brown', bars: false},  {id: 7, name: 'K.R.I.T.', bars: true}
+        {id: 1, name: 'Joey BadA$$', bars: true}, {id: 2, name: 'A$AP Rocky', bars: true}, {id: 3, name: 'Action Bronson', bars: true}, {id: 4, name: 'Yelawolf', bars: false},  {id: 5, name: 'KDot', bars: true},  {id: 6, name: 'Danny Brown', bars: false},  {id: 7, name: 'K.R.I.T.', bars: true}
     ];
     
     
