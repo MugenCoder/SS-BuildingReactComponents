@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- BABEL LIBRARY-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <!-- FONT AWESOME LIBRARY -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/14102e9075.js" crossorigin="anonymous"></script>
+
+    <title>Rendering Two Filtered/Transformed Lists to the DOM</title>
+</head>
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT-->
+    <div id="app">React has not rendered yet</div>
+
+    <script type="text/babel">
+
+    // WHEN YOU RENDER A LIST OF ITEMS, REACT ALWAYS STORES SOME INFO ABOUT EACH ITEM IN THE LIST. IF YOU RENDER A COMPONENT THAT HAS STATE, THAT STATE NEEDS TO BE STORED AND REGARDLESS OF HOW YO IMPLEMENT YOUR COMPONENTS, REACT STORES A REFERENCE TO THE BACKING NATIVE VIEWS. WHEN YOU UPDATE THAT LIST, REACT NEEDS TO DETERMINE WHAT HAS CHANGED. YOU COULD'VE ADDED, REMOVED, REARRANGED OR UPDATED ITEMS IN THE LIST. "KEY" IS A SPECIAL PROPERTY THAT'S RESERVED BY REACT. WHEN AN ELEMENT IS CREATED, REACT PULLS OFF THE KEY PROPERTY AND STORES THE KEY DIRECTLY ON THE RETURNED ELEMENT. EVEN THOUGH IT MAY LOOK LIKE IT IS PARY OF PROPS, IT CANNOT BE REFERENCED WITH "THIS.PROPS.KEY"
+    // REACT USES THE KEY AUTOMATICALLY TO WHILE DECIDING WHICH CHILDREN TO UPDATE 
+    // THERE'S NO WAY FOR A COMPONENT TO INQUIRE ABOUT ITS OWN KEY
+    // WHEN A LIST IS RENDERED, REACT TAKES EACH ELEMENT OF THE NEW VERSION AND LOOKS FOR ONE WITH A MATCHING KEY IN THE OLD LIST 
+    // WHEN A KEY IS ADDED TO THE SET, A COMOPONENT IS CREATED; WHEN A KEY IS TAKEN AWAY, A COMPONENT IS DESTROYED
+    // KEYS TELL ABOUT THE IDENTITY OF EACH COMPONENT SO IT CAN MAINTAIN THE STATE ACROSS RENDERS
+
+    // ARRAY OF OBJS - 3 PROPS (ID, NAME & FEMALE), 3 VALUES (NUMBER, STRING, BOOLEAN)
+    const siblings = [
+        {id: 1, name: 'Game', female:false}, {id: 2, name: 'Nipsey', female: false}, {id: 3, name: 'Masego', female: false}, {id: 4, name: 'Meg', female: true}
+    ];
+
+    // CHALLENGE: USE FILTER & MAP TO GENERATE JSX FOR MALE SIBLINGS
+    
+    let FamilyList = (props) => {
+        let femaleSiblings = props.siblings.filter((person) => {
+            return person.female;
+        }).map((person) => {
+            return <div>{person.name}</div>
+        });
+        // let maleSiblings = props.siblings.filter((person) => {
+        //     return !person.female;
+        // }).map((person) => {
+        //     return <div>{person.name}</div>
+        // })
+        // ALTERNATIVE (MORE INTUITIVE)
+        let maleSiblings = props.siblings.filter((person) => {
+            return person.female === false;
+        }).map((person) => {
+            return <div>{person.name}</div>
+        })
+        
+        return(
+            <div>
+                <h1>Female Siblings</h1>
+                    <div>
+                        {/*Render female siblings*/}    
+                        {femaleSiblings}
+                    </div>
+                    <hr/>
+                    <h1>Male Siblings</h1>
+                    <div>{/*Render male siblings*/}
+                        {maleSiblings}
+                    </div>
+            </div>
+        );
+    }
+    
+    ReactDOM.render(
+        // react what
+        <FamilyList 
+            siblings={siblings}
+        />,
+        // react where
+        document.getElementById("app")
+    )
+    
+    </script>
+</body>
+</html>
